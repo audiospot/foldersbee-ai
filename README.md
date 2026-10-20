@@ -10,12 +10,12 @@ and creates new project folder structures (macOS 13+, Windows 10+). Do the steps
 asking before anything that installs or changes something on their computer, and end with a short
 report that you are ready (step 6).
 
-Current FoldersBee version: 1.1.0. Files of this version (also on the repository's latest
+Current FoldersBee version: 1.1.2. Files of this version (also on the repository's latest
 release page, https://github.com/audiospot/foldersbee-ai/releases/latest, with `SHA256SUMS.txt`):
-- macOS app: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.0/FoldersBee_1.1.0.dmg
-- Windows app: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.0/FoldersBee_1.1.0_Windows.zip (the installer is inside)
-- Claude Desktop extension: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.0/FoldersBee_1.1.0.mcpb
-- Agent Skill (optional): https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.0/FoldersBee_1.1.0_Skill.zip
+- macOS app: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.2/FoldersBee_1.1.2.dmg
+- Windows app: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.2/FoldersBee_1.1.2_Windows.zip (the installer is inside)
+- Claude Desktop extension: https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.2/FoldersBee_1.1.2.mcpb
+- Agent Skill (optional): https://github.com/audiospot/foldersbee-ai/releases/download/v1.1.2/FoldersBee_1.1.2_Skill.zip
 - Product page (prices, trial): https://audiospot-creativetools.com/product/foldersbee/
 
 FoldersBee itself makes no network connection for you and opens no port: you connect to a small
