@@ -24,6 +24,18 @@ program inside the installed app, `foldersbee-cli`, over MCP (stdio), or run it 
 - Windows: `%LOCALAPPDATA%\FoldersBee\foldersbee-cli.exe`
 Below, PROGRAM means that full path.
 
+## 0. Tell the person first what will need them
+
+Before you start, tell the person in a few words what they will be asked to do, so nothing comes as a
+surprise halfway:
+- approve, in your own app, the download, the installation and the change to your settings;
+- macOS: when FoldersBee first works for you in Desktop, Documents, Downloads or on an external drive,
+  macOS asks whether YOUR app (the Claude desktop app, ChatGPT, Terminal, Cursor...) may access files
+  there: click Allow (details in step 5);
+- start the free trial or enter their license key in the FoldersBee window (only they can);
+- your app may refuse some actions itself (permission rules, a safety review). If it does, say so
+  plainly and give the person the exact command to run themselves; never try to get around it.
+
 ## 1. You can most likely do all of this yourself
 
 What decides it is the MODE you run in, not the app's name:
@@ -62,7 +74,9 @@ Run `"PROGRAM" status` (JSON). Look at:
 ## 4. Connect FoldersBee as an MCP server
 
 Name the server `foldersbee`, command PROGRAM, one argument `mcp`. When you edit a settings file,
-add FoldersBee to what is there; never remove or change the person's other servers.
+add FoldersBee to what is there; never remove or change the person's other servers, and keep the
+file's permissions as they were (for example `~/.claude.json` stays readable by the person only;
+check after an atomic rewrite).
 
 - Claude Code, including the Code tab of the Claude desktop app:
   `claude mcp add --scope user foldersbee -- "PROGRAM" mcp` (or add the server under `mcpServers` in
@@ -91,6 +105,15 @@ In JSON files on Windows, write the full path with double backslashes
 (`C:\\Users\\<name>\\AppData\\Local\\FoldersBee\\foldersbee-cli.exe`); environment variables are
 not expanded there.
 
+Agent Skill (recommended for Claude Code and the Claude desktop app's Code tab; other assistants that
+read skills likewise): download the Skill zip (link above), check it against `SHA256SUMS.txt`, and put
+its `foldersbee` folder into the assistant's skills folder (Claude: `~/.claude/skills/foldersbee/`,
+Windows `%USERPROFILE%\.claude\skills\foldersbee\`). It holds the same guide as `get_agent_guide`,
+available to you from the start of every session. Ask the person first. If your app refuses to write
+there (some safety reviewers treat a new skill file as instructions), do not work around it: show the
+person the one-line command and ask them to run it themselves (in the Claude desktop app's Code tab
+they can run a command you show them from the conversation with one click), then check the file.
+
 ## 5. Check that it works
 
 Most assistants load a new MCP server only in a new session or after a restart: tell the person
@@ -100,8 +123,14 @@ FoldersBee's own data files. Call `get_status` and `list_presets` (command line:
 `status`, `presets list`). Read the full guide once with `get_agent_guide` (command line: `guide`)
 before your first job: it explains every tool and the safe way to act.
 
-macOS: the first time FoldersBee works in Documents, Desktop, Downloads or on an external drive for
-you, macOS may ask the person whether YOUR app may access those files. They must click Allow.
+macOS privacy: FoldersBee's program runs inside YOUR app, so macOS asks about your app, not about
+FoldersBee: the first time it works in Desktop, Documents, Downloads, iCloud Drive or on an external or
+network drive for you, macOS asks whether your app may access files there (once per place). The person
+must click Allow. If they clicked "Don't Allow", or a job reports that a folder cannot be read: System
+Settings > Privacy & Security > Files and Folders > your app > turn on that place (an external drive is
+"Removable Volumes" / "Network Volumes"); then quit and reopen your app. Full Disk Access for your app
+also works, but it opens far more than FoldersBee needs: mention it only as the person's own choice. The
+FoldersBee app asks the same for itself when the person uses its window.
 
 ## 6. Report to the person
 
